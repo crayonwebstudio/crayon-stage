@@ -130,3 +130,12 @@ Deployment is Docker through Coolify: `Dockerfile` builds with node:22-alpine an
 - Real image alt text: needs descriptions from the content owner.
 - Duplicate TYPO3 v14 titles and the long homepage description: needs a content decision from the owner, not a silent rewrite.
 - Public indexing flip: needs an explicit decision, see the indexing section at the top.
+
+## Deployment record, 2026-10-26
+
+- GitHub repo: https://github.com/crayonwebstudio/crayon-stage, branch main, first commit 332a8d624863fabbde32bf6d2fa6f1f8abec6366 (138 files).
+- Coolify project: crayon-stage, UUID th8cx5wbabrkrkqvit3miulh.
+- Coolify app: stage, UUID paqd6rjewnp6rlodsfyjmhdu, domain https://stage.woodwolfdigital.com, Dockerfile build, port 80.
+- First deployment: tm96qpqyvoci2ad9kvf97vlo, status finished, container started, rolling update completed, 2026-10-26T15:06:41Z to 15:07:39Z.
+- Live check after that deployment, via curl: all 14 routes returned 200, robots.txt and sitemap-index.xml returned 200, legacy .html paths returned 301 to the clean https routes, and unknown routes returned a true 404 with the custom 404 page. Every response carried X-Robots-Tag noindex, nofollow.
+- Note: the Coolify API app status field still read "exited:unhealthy" at check time, even though the deployment logs said the container started and the site returned 200. That status field is reported as observed, not as a running claim.
