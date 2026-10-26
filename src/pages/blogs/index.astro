@@ -1,0 +1,28 @@
+---
+import Base from "../../layouts/Base.astro";
+const title = "Blogs";
+const description = "Latest stories and studio updates from Crayonweb Studio.";
+const canonical = "https://stage.woodwolfdigital.com/blogs/";
+const posts = [
+  { href: "/blog-detail/typo3-v14-lts-the-next-generation-of-enterprise-cms/", title: "TYPO3 v14 LTS: The Next Generation of Enterprise CMS", category: "TYPO3 CMS", date: "21 Apr 2026", author: "Milan Pandya", image: "/images/typo3-v14-lts-features.png" },
+  { href: "/blog-detail/whats-new-in-typo3-v14-a-complete-overview-for-2025/", title: "What is New in TYPO3 v14, a Complete Overview for 2025", category: "TYPO3 CMS", date: "07 Dec 2025", author: "Milan Pandya", image: "/images/High-Quality-Laptop-Mockup.jpeg" },
+  { href: "/blog-detail/how-to-install-typo3-v13-lts-using-composer-step-by-step-guide/", title: "How to Install TYPO3 v13 LTS Using Composer (Step-by-Step Guide)", category: "DevOps", date: "27 Aug 2025", author: "Milan Pandya", image: "/images/How-to-Install-TYPO3-v13-LTS-Using-Composer.jpeg" },
+  { href: "/blog-detail/complete-step-by-step-guide-to-installing-and-setting-up-coolify-on-a-vps/", title: "Complete Step-by-Step Guide to Installing and Setting Up Coolify on a VPS", category: "DevOps", date: "07 Dec 2025", author: "Milan Pandya", image: "/images/setup-coolify-on-pPS.jpeg" },
+];
+---
+<Base title={title} description={description} canonical={canonical} type="website">
+  <div class="container" style="padding:3rem 1rem">
+    <h1>We Are a Digital Agency Crafting Visually Compelling Stories, Crayonweb</h1>
+    <p>Latest stories and studio updates from Crayonweb Studio.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;margin-top:2rem">
+      {posts.map((post) => (
+        <article>
+          <a href={post.href}><img src={post.image} alt="" loading="lazy" style="width:100%;height:auto" /></a>
+          <p>{post.category} | {post.date} | {post.author}</p>
+          <h2 style="font-size:1.25rem"><a href={post.href}>{post.title}</a></h2>
+          <p><a href={post.href}>Read More</a></p>
+        </article>
+      ))}
+    </div>
+  </div>
+</Base>
