@@ -1,0 +1,57 @@
+---
+import Base from "../../layouts/Base.astro";
+const title = "Portfolio";
+const description = "Our creative work, visually compelling stories by Crayonweb.";
+const canonical = "https://stage.woodwolfdigital.com/portfolio/";
+---
+<Base title={title} description={description} canonical={canonical} type="website">
+  <section><div class="container" style="padding:3rem 1rem">
+    <h1>Our Creative Work - Visually Compelling Stories by Crayonweb</h1>
+    <p>View Crayonweb's portfolio showcasing our expertise in creating visually stunning websites, TYPO3 solutions, mobile applications, and digital storytelling that drive business growth.</p>
+    <div class="nav nav-pills nav" role="tablist">
+        <div class="nav-item"><a role="tab" id="left-tabs-example-tab-all" aria-controls="left-tabs-example-tabpane-all" aria-selected="true" class="nav-link active" href="#">All</a></div>
+        <div class="nav-item"><a role="tab" id="left-tabs-example-tab-typo3" aria-controls="left-tabs-example-tabpane-typo3" aria-selected="false" class="nav-link " href="#">TYPO3</a></div>
+        <div class="nav-item"><a role="tab" id="left-tabs-example-tab-branding" aria-controls="left-tabs-example-tabpane-branding" aria-selected="false" class="nav-link " href="#">Branding</a></div>
+        <div class="nav-item"><a role="tab" id="left-tabs-example-tab-wordpress" aria-controls="left-tabs-example-tabpane-wordpress" aria-selected="false" class="nav-link " href="#">WordPress</a></div>
+        <div class="nav-item"><a role="tab" id="left-tabs-example-tab-magento" aria-controls="left-tabs-example-tabpane-magento" aria-selected="false" class="nav-link " href="#">Magento</a></div>
+        <div class="nav-item"><a role="tab" id="left-tabs-example-tab-mobileapp" aria-controls="left-tabs-example-tabpane-mobileapp" aria-selected="false" class="nav-link " href="#">Mobile Application</a></div>
+        <div class="nav-item"><a role="tab" id="left-tabs-example-tab-headless" aria-controls="left-tabs-example-tabpane-headless" aria-selected="false" class="nav-link " href="#">Headless Website</a></div>
+    </div>
+    <div class="tab-content">
+      <div role="tabpanel" id="left-tabs-example-tabpane-all" aria-labelledby="left-tabs-example-tab-all" class="fade tab-pane active show">
+      <article><img src="/images/arnoldpopl.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Arnold Pöppl</h3><p>TYPO3 CMS Website</p><p>Arnold Pöppl - A modern portfolio website built on TYPO3 CMS, featuring responsive design, custom elements, and seamless user experience.</p></article>
+      <article><img src="/images/novanox.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Novanox®</h3><p>TYPO3 CMS Website</p><p>Delivered a multilingual TYPO3 CMS solution in 4 languages, fully GDPR compliant with secure data handling, optimized performance, and user-friendly design.</p></article>
+      <article><img src="/images/rashmicabs.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Rashmicabs - One way Cab Service</h3><p>Headless Website Using Strapi & Next.js</p><p>Rashmi Cabs - A modern cab service platform built with Strapi and Next.js, featuring fast performance, SEO optimization, and a seamless booking experience with a clean, responsive design.</p></article>
+      </div>
+      <div role="tabpanel" id="left-tabs-example-tabpane-typo3" aria-labelledby="left-tabs-example-tab-typo3" class="fade tab-pane">
+      <article><img src="/images/arnoldpopl.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Arnold Pöppl</h3><p>TYPO3 CMS Website</p><p>Arnold Pöppl - A modern portfolio website built on TYPO3 CMS, featuring responsive design, custom elements, and seamless user experience.</p></article>
+      <article><img src="/images/novanox.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Novanox®</h3><p>TYPO3 CMS Website</p><p>Delivered a multilingual TYPO3 CMS solution in 4 languages, fully GDPR compliant with secure data handling, optimized performance, and user-friendly design.</p></article>
+      </div>
+      <div role="tabpanel" id="left-tabs-example-tabpane-branding" aria-labelledby="left-tabs-example-tab-branding" class="fade tab-pane">
+      <p>No projects in this category.</p>
+      </div>
+      <div role="tabpanel" id="left-tabs-example-tabpane-wordpress" aria-labelledby="left-tabs-example-tab-wordpress" class="fade tab-pane">
+      <p>No projects in this category.</p>
+      </div>
+      <div role="tabpanel" id="left-tabs-example-tabpane-magento" aria-labelledby="left-tabs-example-tab-magento" class="fade tab-pane">
+      <article><img src="/images/duvetsuisse.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Duvetsuisse</h3><p>Magento eCommerce Store</p><p>Duvetsuisse - A premium online bedding store built on Magento2, offering high-quality duvets, pillows, and luxury bedding essentials with a seamless shopping experience and secure checkout.</p></article>
+      </div>
+      <div role="tabpanel" id="left-tabs-example-tabpane-mobileapp" aria-labelledby="left-tabs-example-tab-mobileapp" class="fade tab-pane">
+      <article><img src="/images/rashmicabsapp.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Rashmicabs</h3><p>Mobile App for One way taxi service.</p><p>Mobile App for One way taxi service.</p></article>
+      </div>
+      <div role="tabpanel" id="left-tabs-example-tabpane-headless" aria-labelledby="left-tabs-example-tab-headless" class="fade tab-pane">
+      <article><img src="/images/rashmicabs.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Rashmicabs - One way Cab Service</h3><p>Headless Website Using Strapi & Next.js</p><p>Rashmi Cabs - A modern cab service platform built with Strapi and Next.js, featuring fast performance, SEO optimization, and a seamless booking experience with a clean, responsive design.</p></article>
+      <article><img src="/images/boatschool.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Boat School</h3><p>Boat Training School Website Using Laravel and Vue.js</p><p>Built a Boat Training School website using Laravel and Vue.js, featuring course management, student registration, and a responsive user interface with a seamless backend-frontend integration.</p></article>
+      </div>
+    </div>
+    <p><button type="button" class="load-more">Load More</button></p>
+    <div class="second-set" style="display:none">
+      <article><img src="/images/arnoldpopl.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Arnold Pöppl</h3><p>TYPO3 CMS Website</p><p>Arnold Pöppl - A modern portfolio website built on TYPO3 CMS, featuring responsive design, custom elements, and seamless user experience.</p></article>
+      <article><img src="/images/novanox.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Novanox®</h3><p>TYPO3 CMS Website</p><p>Delivered a multilingual TYPO3 CMS solution in 4 languages, fully GDPR compliant with secure data handling, optimized performance, and user-friendly design.</p></article>
+      <article><img src="/images/duvetsuisse.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Duvetsuisse</h3><p>Magento eCommerce Store</p><p>Duvetsuisse - A premium online bedding store built on Magento2, offering high-quality duvets, pillows, and luxury bedding essentials with a seamless shopping experience and secure checkout.</p></article>
+      <article><img src="/images/rashmicabsapp.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Rashmicabs</h3><p>Mobile App for One way taxi service.</p><p>Mobile App for One way taxi service.</p></article>
+      <article><img src="/images/rashmicabs.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Rashmicabs - One way Cab Service</h3><p>Headless Website Using Strapi & Next.js</p><p>Rashmi Cabs - A modern cab service platform built with Strapi and Next.js, featuring fast performance, SEO optimization, and a seamless booking experience with a clean, responsive design.</p></article>
+      <article><img src="/images/boatschool.jpeg" alt="" loading="lazy" style="width:100%;height:auto" /><h3>Boat School</h3><p>Boat Training School Website Using Laravel and Vue.js</p><p>Built a Boat Training School website using Laravel and Vue.js, featuring course management, student registration, and a responsive user interface with a seamless backend-frontend integration.</p></article>
+    </div>
+  </div></section>
+</Base>

@@ -1,0 +1,21 @@
+---
+import Base from "../../layouts/Base.astro";
+const title = "Contact Us";
+const description = "Contact Crayonweb Studio by email or phone.";
+const canonical = "https://stage.woodwolfdigital.com/contact-us/";
+---
+<Base title={title} description={description} canonical={canonical} type="website">
+  <div class="container" style="padding:3rem 1rem">
+    <h1>Contact Us</h1>
+    <p>Address: 319, 3rd Floor, Sagar Complex, Jasonath Chowk, Bhavnagar-364001, India</p>
+    <p>Phone: <a href="tel:+919624052424">+91 9624052424</a></p>
+    <p>Email: <a href="mailto:info@crayonwebstudio.com">info@crayonwebstudio.com</a></p>
+    <form>
+      <p><label>Name<br /><input type="text" name="name" required /></label></p>
+      <p><label>Email<br /><input type="email" name="email" required /></label></p>
+      <p><label>Message<br /><textarea name="message" rows="5" required></textarea></label></p>
+      <p><button type="submit">Send Message</button></p>
+    </form>
+    <p>Note: this contact page is new for staging. Live /contact-us currently renders a not-found element, so this page is not a copy of live, it collects only the site-wide verified contact facts. This form is front end only on this staging site, so nothing is sent. Please email info@crayonwebstudio.com instead.</p>
+  </div>
+</Base>

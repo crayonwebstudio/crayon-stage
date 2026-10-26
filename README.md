@@ -41,12 +41,9 @@ The supplied pages are Next.js output from the live Crayonweb Studio site. No li
 
 URL changes, documented: the `.htm` and `.html` extensions were removed for clean routes. nginx.conf returns 301 redirects for the old paths: `/index.htm` to `/`, `/about-us.html` to `/about-us/`, `/service/<slug>.html` to `/service/<slug>/`, and `/pages/blog-detail/<slug>.html` to `/blog-detail/<slug>/`. No other redirects were added, and missing URLs are never redirected to the homepage. They return the custom 404 page.
 
-## Missing pages, not invented
+## Pages added after the initial migration
 
-The following pages are linked from the supplied HTML but were not in the zip, so they were NOT built as full content pages. Links to the blog list point to `/blogs/`, which returns the custom 404 page. This is intentional, so a missing page is visible as a 404 instead of a fabricated page.
-
-- blogs.html and blogs-1.html through blogs-27.html (blog list, category, and tag pages)
-- portfolio, careers, and contact pages (referenced by the original site structure, not supplied as files)
+The blog list, services index, portfolio, careers, and contact pages were not in the supplied zip. They were later built from live content verified by curl (titles, headings, lists, and links), with no invented forms, endpoints, or prices, and are now live routes: `/blogs/`, `/services/`, `/portfolio/`, `/careers/` plus 4 role pages, and `/contact-us/` (front end only form, email message, no backend). Blog category and tag pages (blogs-1.html through blogs-27.html) are still not built, and return the custom 404 page.
 
 Other gaps, carried over from the source, not fixed by invention:
 

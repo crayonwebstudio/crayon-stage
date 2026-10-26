@@ -8,11 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
+  var isTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
   document.querySelectorAll(".nav-dropdown > a").forEach(function (link) {
     link.addEventListener("click", function (e) {
-      if (window.innerWidth <= 820) {
-        e.preventDefault();
-        link.parentElement.classList.toggle("open");
+      if (window.innerWidth <= 991 || isTouch) {
+        if (!link.parentElement.classList.contains("open")) {
+          e.preventDefault();
+          link.parentElement.classList.add("open");
+        }
       }
     });
   });
@@ -62,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     var prev = container.querySelector(".swiper-button-prev");
     var next = container.querySelector(".swiper-button-next");
-    if (prev) prev.addEventListener("click", function () { goTo(Math.max(0, currentIndex() - 1)); });
-    if (next) next.addEventListener("click", function () { goTo(Math.min(slides.length - 1, currentIndex() + 1)); });
+    if (prev) prev.addEventListener("click", function () { goTo((currentIndex() - 1 + slides.length) % slides.length); });
+    if (next) next.addEventListener("click", function () { goTo((currentIndex() + 1) % slides.length); });
     var paginations = container.querySelectorAll(".swiper-pagination");
     paginations.forEach(function (pag) {
       pag.innerHTML = "";
@@ -91,6 +94,22 @@ document.addEventListener("DOMContentLoaded", function () {
       requestAnimationFrame(function () { updateDots(); ticking = false; });
     }, { passive: true });
     updateDots();
+    /* Autoplay with loop, paused on hover or focus, off for reduced motion. */
+    var autoplayTimer = null;
+    function startAutoplay() {
+      if (reduced || slides.length < 2) return;
+      stopAutoplay();
+      autoplayTimer = setInterval(function () {
+        if (swiper.closest(".tab-pane") && !swiper.closest(".tab-pane").classList.contains("active")) return;
+        goTo((currentIndex() + 1) % slides.length);
+      }, 5000);
+    }
+    function stopAutoplay() { if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
+    swiper.addEventListener("mouseenter", stopAutoplay);
+    swiper.addEventListener("mouseleave", startAutoplay);
+    swiper.addEventListener("focusin", stopAutoplay);
+    swiper.addEventListener("focusout", startAutoplay);
+    startAutoplay();
   });
   /* Portfolio tabs: Bootstrap tab JS is not on stage, so switch panes here. */
   document.querySelectorAll(".nav-pills .nav-link[role='tab']").forEach(function (tab) {
@@ -120,11 +139,97 @@ document.addEventListener("DOMContentLoaded", function () {
   if (list) {
     list.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
-        if (window.innerWidth <= 820) {
+        if (link.parentElement && link.parentElement.classList.contains("nav-dropdown")) return;
+        if (window.innerWidth <= 991) {
           list.classList.remove("open");
           if (toggle) toggle.setAttribute("aria-expanded", "false");
         }
       });
     });
   }
+
+  /* Scroll animations: wow fadeIn equivalent, triggered once on entry. */
+  var wowEls = document.querySelectorAll(".wow");
+  if ("IntersectionObserver" in window) {
+    var wowObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          wowObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    wowEls.forEach(function (el) { wowObserver.observe(el); });
+    document.querySelectorAll(".left_to_right_apperance").forEach(function (el) {
+      var appObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+            appObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      appObserver.observe(el);
+    });
+    /* Skill bars: fill to the labelled value when in view. */
+    var barObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var bar = entry.target;
+          var val = bar.getAttribute("aria-valuenow");
+          if (val) bar.style.width = val + "%";
+          barObserver.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll(".progress-bar").forEach(function (bar) { barObserver.observe(bar); });
+  } else {
+    wowEls.forEach(function (el) { el.classList.add("in-view"); });
+    document.querySelectorAll(".progress-bar").forEach(function (bar) {
+      var val = bar.getAttribute("aria-valuenow");
+      if (val) bar.style.width = val + "%";
+    });
+  }
+  /* Back to top button, shown after scrolling. */
+  var backTop = document.querySelector(".back-to-top");
+  if (backTop) {
+    window.addEventListener("scroll", function () {
+      backTop.classList.toggle("show", window.scrollY > 400);
+    }, { passive: true });
+    backTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+    });
+  }
+  /* Sidebar menu, as on live. */
+  var sideBtn = document.querySelector(".side-menu-btn");
+  var sideMenu = document.getElementById("side-menu");
+  var sideOverlay = document.getElementById("side-overlay");
+  var sideClose = sideMenu ? sideMenu.querySelector(".close-btn") : null;
+  function openSide() {
+    if (!sideMenu) return;
+    sideMenu.classList.add("open");
+    if (sideOverlay) sideOverlay.classList.add("open");
+    if (sideBtn) sideBtn.setAttribute("aria-expanded", "true");
+  }
+  function closeSide() {
+    if (!sideMenu) return;
+    sideMenu.classList.remove("open");
+    if (sideOverlay) sideOverlay.classList.remove("open");
+    if (sideBtn) sideBtn.setAttribute("aria-expanded", "false");
+  }
+  if (sideBtn) sideBtn.addEventListener("click", openSide);
+  if (sideClose) sideClose.addEventListener("click", closeSide);
+  if (sideOverlay) sideOverlay.addEventListener("click", closeSide);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeSide();
+  });
+
+  /* Portfolio Load More: reveal the second set of cards. */
+  document.querySelectorAll(".load-more").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var second = document.querySelector(".second-set");
+      if (second) second.style.display = "block";
+      btn.style.display = "none";
+    });
+  });
 });
