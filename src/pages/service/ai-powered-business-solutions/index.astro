@@ -1,0 +1,12 @@
+---
+import Base from "../../../layouts/Base.astro";
+import bodyHtml from "../../../fragments/service_ai-powered-business-solutions.html?raw";
+const title = "AI-Powered Business Solutions | AI Video Production & Automation by Crayonweb";
+const description = "Accelerate your business growth with Crayonweb’s AI-powered solutions including automated video production, AI content creation, and smart automation tools for modern enterprises.";
+const canonical = "https://stage.woodwolfdigital.com/service/ai-powered-business-solutions/";
+const schema = "{\"@context\": \"https://schema.org\", \"@type\": \"Service\", \"name\": \"AI-Powered Business Solutions\", \"description\": \"Accelerate your business growth with Crayonweb’s AI-powered solutions including automated video production, AI content creation, and smart automation tools for modern enterprises.\", \"url\": \"https://stage.woodwolfdigital.com/service/ai-powered-business-solutions/\", \"provider\": {\"@type\": \"Organization\", \"name\": \"Crayonweb Studio Pvt. Ltd.\", \"url\": \"https://stage.woodwolfdigital.com/\"}}";
+const breadcrumbs = "[{\"name\": \"Home\", \"url\": \"https://stage.woodwolfdigital.com/\"}, {\"name\": \"AI-Powered Business Solutions\", \"url\": \"https://stage.woodwolfdigital.com/service/ai-powered-business-solutions/\"}]";
+---
+<Base title={title} description={description} canonical={canonical} type="website" schema={schema} breadcrumbs={JSON.parse(breadcrumbs)}>
+  <div set:html={bodyHtml} />
+</Base>

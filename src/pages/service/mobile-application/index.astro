@@ -1,0 +1,12 @@
+---
+import Base from "../../../layouts/Base.astro";
+import bodyHtml from "../../../fragments/service_mobile-application.html?raw";
+const title = "Mobile App Development Services | Custom iOS & Android Apps by Crayonweb";
+const description = "Build dynamic, scalable mobile apps with Crayonweb. Expert native and cross-platform development, UI/UX design, enterprise solutions, and dedicated support.";
+const canonical = "https://stage.woodwolfdigital.com/service/mobile-application/";
+const schema = "{\"@context\": \"https://schema.org\", \"@type\": \"Service\", \"name\": \"Mobile App Development Services\", \"description\": \"Build dynamic, scalable mobile apps with Crayonweb. Expert native and cross-platform development, UI/UX design, enterprise solutions, and dedicated support.\", \"url\": \"https://stage.woodwolfdigital.com/service/mobile-application/\", \"provider\": {\"@type\": \"Organization\", \"name\": \"Crayonweb Studio Pvt. Ltd.\", \"url\": \"https://stage.woodwolfdigital.com/\"}}";
+const breadcrumbs = "[{\"name\": \"Home\", \"url\": \"https://stage.woodwolfdigital.com/\"}, {\"name\": \"Mobile App Development Services\", \"url\": \"https://stage.woodwolfdigital.com/service/mobile-application/\"}]";
+---
+<Base title={title} description={description} canonical={canonical} type="website" schema={schema} breadcrumbs={JSON.parse(breadcrumbs)}>
+  <div set:html={bodyHtml} />
+</Base>

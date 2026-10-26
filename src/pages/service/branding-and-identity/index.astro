@@ -1,0 +1,12 @@
+---
+import Base from "../../../layouts/Base.astro";
+import bodyHtml from "../../../fragments/service_branding-and-identity.html?raw";
+const title = "Professional Branding and Identity Services | Distinctive Brand Design by Crayonweb";
+const description = "Elevate your business with Crayonweb’s expert branding and identity services,creative brand strategy, visual identity, messaging, and consistent brand guidelines for market success.";
+const canonical = "https://stage.woodwolfdigital.com/service/branding-and-identity/";
+const schema = "{\"@context\": \"https://schema.org\", \"@type\": \"Service\", \"name\": \"Professional Branding and Identity Services\", \"description\": \"Elevate your business with Crayonweb’s expert branding and identity services,creative brand strategy, visual identity, messaging, and consistent brand guidelines for market success.\", \"url\": \"https://stage.woodwolfdigital.com/service/branding-and-identity/\", \"provider\": {\"@type\": \"Organization\", \"name\": \"Crayonweb Studio Pvt. Ltd.\", \"url\": \"https://stage.woodwolfdigital.com/\"}}";
+const breadcrumbs = "[{\"name\": \"Home\", \"url\": \"https://stage.woodwolfdigital.com/\"}, {\"name\": \"Professional Branding and Identity Services\", \"url\": \"https://stage.woodwolfdigital.com/service/branding-and-identity/\"}]";
+---
+<Base title={title} description={description} canonical={canonical} type="website" schema={schema} breadcrumbs={JSON.parse(breadcrumbs)}>
+  <div set:html={bodyHtml} />
+</Base>

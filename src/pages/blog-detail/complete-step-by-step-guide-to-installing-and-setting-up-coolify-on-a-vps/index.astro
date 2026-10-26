@@ -1,0 +1,12 @@
+---
+import Base from "../../../layouts/Base.astro";
+import bodyHtml from "../../../fragments/blog-detail_complete-step-by-step-guide-to-installing-and-setting-up-coolify-on-a-vps.html?raw";
+const title = "Complete Step-by-Step Guide to Installing and Setting Up Coolify on a VPS";
+const description = "Learn how to install and set up Coolify on a VPS in this step-by-step guide. This comprehensive tutorial covers everything from server setup, Coolify installation, SSL configuration, to deploying your first application. Perfect for developers and self-hosters who want full control over their infrastructure.";
+const canonical = "https://stage.woodwolfdigital.com/blog-detail/complete-step-by-step-guide-to-installing-and-setting-up-coolify-on-a-vps/";
+const schema = "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"Complete Step-by-Step Guide to Installing and Setting Up Coolify on a VPS\", \"description\": \"Learn how to install and set up Coolify on a VPS in this step-by-step guide. This comprehensive tutorial covers everything from server setup, Coolify installation, SSL configuration, to deploying your first application. Perfect for developers and self-hosters who want full control over their infrastructure.\", \"url\": \"https://stage.woodwolfdigital.com/blog-detail/complete-step-by-step-guide-to-installing-and-setting-up-coolify-on-a-vps/\", \"author\": {\"@type\": \"Person\", \"name\": \"Milan Pandya\"}, \"publisher\": {\"@type\": \"Organization\", \"name\": \"Crayonweb Studio Pvt. Ltd.\"}}";
+const breadcrumbs = "[{\"name\": \"Home\", \"url\": \"https://stage.woodwolfdigital.com/\"}, {\"name\": \"Complete Step-by-Step Guide to Installing and Setting Up Coolify on a VPS\", \"url\": \"https://stage.woodwolfdigital.com/blog-detail/complete-step-by-step-guide-to-installing-and-setting-up-coolify-on-a-vps/\"}]";
+---
+<Base title={title} description={description} canonical={canonical} type="article" schema={schema} breadcrumbs={JSON.parse(breadcrumbs)}>
+  <div set:html={bodyHtml} />
+</Base>

@@ -1,0 +1,12 @@
+---
+import Base from "../../../layouts/Base.astro";
+import bodyHtml from "../../../fragments/service_branding-design.html?raw";
+const title = "Professional Web Design Services | Custom Responsive Websites by Crayonweb";
+const description = "Transform your online presence with Crayonweb’s expert web design services. We build responsive, user-centric, and custom-designed websites tailored to your brand and business goals.";
+const canonical = "https://stage.woodwolfdigital.com/service/branding-design/";
+const schema = "{\"@context\": \"https://schema.org\", \"@type\": \"Service\", \"name\": \"Professional Web Design Services\", \"description\": \"Transform your online presence with Crayonweb’s expert web design services. We build responsive, user-centric, and custom-designed websites tailored to your brand and business goals.\", \"url\": \"https://stage.woodwolfdigital.com/service/branding-design/\", \"provider\": {\"@type\": \"Organization\", \"name\": \"Crayonweb Studio Pvt. Ltd.\", \"url\": \"https://stage.woodwolfdigital.com/\"}}";
+const breadcrumbs = "[{\"name\": \"Home\", \"url\": \"https://stage.woodwolfdigital.com/\"}, {\"name\": \"Professional Web Design Services\", \"url\": \"https://stage.woodwolfdigital.com/service/branding-design/\"}]";
+---
+<Base title={title} description={description} canonical={canonical} type="website" schema={schema} breadcrumbs={JSON.parse(breadcrumbs)}>
+  <div set:html={bodyHtml} />
+</Base>

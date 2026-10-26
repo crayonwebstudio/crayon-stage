@@ -1,0 +1,12 @@
+---
+import Base from "../../../layouts/Base.astro";
+import bodyHtml from "../../../fragments/blog-detail_how-to-install-typo3-v13-lts-using-composer-step-by-step-guide.html?raw";
+const title = "How to Install TYPO3 v13 LTS Using Composer (Step-by-Step Guide)";
+const description = "Learn how to install TYPO3 v13 LTS using Composer with this step-by-step guide. Covering system requirements, Composer setup, database configuration, and the TYPO3 Install Tool, this tutorial will get your TYPO3 CMS ready for development with a professional, maintainable structure.";
+const canonical = "https://stage.woodwolfdigital.com/blog-detail/how-to-install-typo3-v13-lts-using-composer-step-by-step-guide/";
+const schema = "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"How to Install TYPO3 v13 LTS Using Composer (Step-by-Step Guide)\", \"description\": \"Learn how to install TYPO3 v13 LTS using Composer with this step-by-step guide. Covering system requirements, Composer setup, database configuration, and the TYPO3 Install Tool, this tutorial will get your TYPO3 CMS ready for development with a professional, maintainable structure.\", \"url\": \"https://stage.woodwolfdigital.com/blog-detail/how-to-install-typo3-v13-lts-using-composer-step-by-step-guide/\", \"author\": {\"@type\": \"Person\", \"name\": \"Milan Pandya\"}, \"publisher\": {\"@type\": \"Organization\", \"name\": \"Crayonweb Studio Pvt. Ltd.\"}}";
+const breadcrumbs = "[{\"name\": \"Home\", \"url\": \"https://stage.woodwolfdigital.com/\"}, {\"name\": \"How to Install TYPO3 v13 LTS Using Composer (Step-by-Step Guide)\", \"url\": \"https://stage.woodwolfdigital.com/blog-detail/how-to-install-typo3-v13-lts-using-composer-step-by-step-guide/\"}]";
+---
+<Base title={title} description={description} canonical={canonical} type="article" schema={schema} breadcrumbs={JSON.parse(breadcrumbs)}>
+  <div set:html={bodyHtml} />
+</Base>
