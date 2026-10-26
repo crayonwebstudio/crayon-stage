@@ -1,7 +1,7 @@
 /* Site additions for the Astro migration. No em dashes in this file. */
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 .skip-link:focus{position:fixed;left:1rem;top:1rem;z-index:1100;width:auto;height:auto;padding:.5rem 1rem;background:#151515;color:#fff;display:inline-block}
-.site-header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:900;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.site-header{background:#fff;border-bottom:1px solid #eee;position:-webkit-sticky;position:sticky;top:0;z-index:900;box-shadow:0 2px 12px rgba(0,0,0,.06)}
 html,body{overflow-x:clip}
 .topbar{background:#151515;color:#fff;font-size:.95rem}
 .topbar a{color:#fff;text-decoration:none}

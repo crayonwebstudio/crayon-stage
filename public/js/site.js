@@ -115,7 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".nav-pills .nav-link[role='tab']").forEach(function (tab) {
     tab.addEventListener("click", function (e) {
       e.preventDefault();
-      var section = tab.closest("section") || document;
+      var section = tab;
+      while (section && !section.querySelector(".tab-pane")) section = section.parentElement;
+      if (!section) section = document;
       var paneId = tab.getAttribute("aria-controls");
       if (!paneId) return;
       section.querySelectorAll(".nav-pills .nav-link[role='tab']").forEach(function (other) {
@@ -176,7 +178,17 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           var bar = entry.target;
-          var val = bar.getAttribute("aria-valuenow");
+          var item = bar.closest(".progress-item");
+          var val = null;
+          if (item) {
+            var label = item.querySelector("h6");
+            var m = label ? label.textContent.match(/(\d+)%/) : null;
+            if (m) val = m[1];
+          }
+          if (!val) {
+            var prog = bar.closest(".progress");
+            val = prog ? prog.getAttribute("aria-valuenow") : bar.getAttribute("aria-valuenow");
+          }
           if (val) bar.style.width = val + "%";
           barObserver.unobserve(bar);
         }
@@ -186,7 +198,17 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     wowEls.forEach(function (el) { el.classList.add("in-view"); });
     document.querySelectorAll(".progress-bar").forEach(function (bar) {
-      var val = bar.getAttribute("aria-valuenow");
+      var item = bar.closest(".progress-item");
+      var val = null;
+      if (item) {
+        var label = item.querySelector("h6");
+        var m = label ? label.textContent.match(/(\d+)%/) : null;
+        if (m) val = m[1];
+      }
+      if (!val) {
+        var prog = bar.closest(".progress");
+        val = prog ? prog.getAttribute("aria-valuenow") : bar.getAttribute("aria-valuenow");
+      }
       if (val) bar.style.width = val + "%";
     });
   }
