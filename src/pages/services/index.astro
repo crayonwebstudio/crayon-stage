@@ -1,0 +1,11 @@
+---
+import Base from "../../layouts/Base.astro";
+import bodyHtml from "../../fragments/services.html?raw";
+const title = "Services - Crayonweb Studio";
+const description = "Crayonweb services: web design, web development, branding and identity, smart growth marketing, media creation, AI-powered business solutions, mobile applications, and CMS solutions.";
+const canonical = "https://stage.woodwolfdigital.com/services/";
+const bodyClass = "page";
+---
+<Base title={title} description={description} canonical={canonical} bodyClass={bodyClass}>
+  <div set:html={bodyHtml} />
+</Base>

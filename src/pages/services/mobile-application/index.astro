@@ -1,0 +1,11 @@
+---
+import Base from "../../../layouts/Base.astro";
+import bodyHtml from "../../../fragments/services-mobile-application.html?raw";
+const title = "Mobile Application - Crayonweb Studio";
+const description = "Custom mobile apps with seamless user experiences: native, cross-platform, and enterprise apps.";
+const canonical = "https://stage.woodwolfdigital.com/services/mobile-application/";
+const bodyClass = "page";
+---
+<Base title={title} description={description} canonical={canonical} bodyClass={bodyClass}>
+  <div set:html={bodyHtml} />
+</Base>

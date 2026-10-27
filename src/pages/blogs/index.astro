@@ -1,0 +1,11 @@
+---
+import Base from "../../layouts/Base.astro";
+import bodyHtml from "../../fragments/blogs.html?raw";
+const title = "Blogs - Crayonweb Studio";
+const description = "Crayonweb blogs: TYPO3 CMS and DevOps stories by Milan Pandya.";
+const canonical = "https://stage.woodwolfdigital.com/blogs/";
+const bodyClass = "page";
+---
+<Base title={title} description={description} canonical={canonical} bodyClass={bodyClass}>
+  <div set:html={bodyHtml} />
+</Base>
