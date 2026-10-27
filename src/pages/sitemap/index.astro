@@ -1,0 +1,86 @@
+---
+import Base from "../../layouts/Base.astro";
+const title = "Sitemap - Crayonweb Studio (Staging Review)";
+const description = "Every page on the staging site, for review: tell us which pages to add and which to remove.";
+const canonical = "https://stage.woodwolfdigital.com/sitemap/";
+const main = [
+  ["/", "Home"],
+  ["/about-us/", "About Us"],
+  ["/services/", "Services"],
+  ["/careers/", "Careers"],
+  ["/portfolio/", "Portfolio"],
+  ["/blogs/", "Blogs"],
+  ["/contact/", "Contact"],
+];
+const services = [
+  ["/services/web-design/", "Web Design"],
+  ["/services/web-development/", "Web Development"],
+  ["/services/branding-and-identity/", "Branding And Identity"],
+  ["/services/smart-growth-marketing/", "Smart Growth Marketing"],
+  ["/services/media-creation-services/", "Media Creation Services"],
+  ["/services/ai-powered-business-solutions/", "AI-Powered Business Solutions"],
+  ["/services/mobile-application/", "Mobile Application"],
+  ["/services/cms-solution/", "CMS Solution"],
+];
+const categories = [
+  ["/category/agency/", "Agency"],
+  ["/category/branding-strategy/", "Branding Strategy"],
+  ["/category/digital-solutions/", "Digital Solutions"],
+  ["/category/typography/", "Typography"],
+  ["/category/uncategorized/", "Uncategorized"],
+  ["/category/ux-ui-design/", "UX UI Design"],
+  ["/category/web-solutions/", "Web Solutions"],
+];
+const work = [
+  "/work/portrait-of-adult-male-working-from-home-at-night/",
+  "/work/portrait-of-adult-male-working-from-home-at-night-2/",
+  "/work/portrait-of-adult-male-working-from-home-at-night-3/",
+  "/work/portrait-of-adult-male-working-from-home-at-night-4/",
+  "/work/portrait-of-adult-male-working-from-home-at-night-5/",
+  "/work/portrait-of-adult-male-working-from-home-at-night-6/",
+  "/work/portrait-of-adult-male-working-from-home-at-night-7/",
+  "/work/portrait-of-adult-male-working-from-home-at-night-8/",
+  "/work/portrait-of-adult-male-working-from-home-at-night-9/",
+  "/work/portrait-of-adult-male-working-from-home-at-night-10/",
+];
+---
+
+<Base title={title} description={description} canonical={canonical} bodyClass="page">
+  <main style="max-width:900px;margin:60px auto;padding:0 30px;font-family:system-ui,sans-serif;line-height:1.6;color:#151515;">
+    <h1 style="font-size:36px;">Sitemap</h1>
+    <p>Every page currently on this staging site. This page is for review only and is not in the main menu. Tell us which pages to add and which to remove, and we will update this list.</p>
+    <p><strong>33 content pages</strong> below, plus this review page itself.</p>
+
+    <h2>Main pages (7)</h2>
+    <ul>
+      {main.map(([url, label]) => <li><a href={url}>{label}</a> <span style="color:#777;">{url}</span></li>)}
+    </ul>
+
+    <h2>Service pages (8)</h2>
+    <ul>
+      {services.map(([url, label]) => <li><a href={url}>{label}</a> <span style="color:#777;">{url}</span></li>)}
+    </ul>
+
+    <h2>Category pages (7)</h2>
+    <ul>
+      {categories.map(([url, label]) => <li><a href={url}>{label}</a> <span style="color:#777;">{url}</span></li>)}
+    </ul>
+
+    <h2>Work pages (10)</h2>
+    <ul>
+      {work.map((url) => <li><a href={url}>{url}</a></li>)}
+    </ul>
+
+    <h2>Other (1)</h2>
+    <ul>
+      <li><a href="/author/admin/">Author: admin</a> <span style="color:#777;">/author/admin/</span></li>
+    </ul>
+
+    <h2>Review page (1)</h2>
+    <ul>
+      <li><a href="/sitemap/">Sitemap (this page)</a> <span style="color:#777;">/sitemap/</span></li>
+    </ul>
+
+    <p style="color:#777;">Note: the custom 404 page is not listed, it only appears for unknown URLs. The site stays noindex while it is staging.</p>
+  </main>
+</Base>
