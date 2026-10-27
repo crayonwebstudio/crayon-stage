@@ -1,2 +1,5 @@
+# Staging only: do not index stage.woodwolfdigital.com.
+# At production launch, replace with the master robots (allow all except
+# /admin, /cart, /search) and point the sitemap at the production domain.
 User-agent: *
 Disallow: /

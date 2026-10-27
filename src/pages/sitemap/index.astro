@@ -2,7 +2,7 @@
 import Base from "../../layouts/Base.astro";
 const title = "Sitemap - Crayonweb Studio (Staging Review)";
 const description = "Every page on the staging site, for review: tell us which pages to add and which to remove.";
-const canonical = "https://stage.woodwolfdigital.com/sitemap/";
+const canonical = "https://crayonwebstudio.com/sitemap/";
 const main = [
   ["/", "Home"],
   ["/about-us/", "About Us"],
@@ -13,14 +13,13 @@ const main = [
   ["/contact/", "Contact"],
 ];
 const services = [
-  ["/services/web-design/", "Web Design"],
-  ["/services/web-development/", "Web Development"],
-  ["/services/branding-and-identity/", "Branding And Identity"],
-  ["/services/smart-growth-marketing/", "Smart Growth Marketing"],
-  ["/services/media-creation-services/", "Media Creation Services"],
-  ["/services/ai-powered-business-solutions/", "AI-Powered Business Solutions"],
-  ["/services/mobile-application/", "Mobile Application"],
-  ["/services/cms-solution/", "CMS Solution"],
+    ["/service/web-development/", "Web Development"],
+  ["/service/branding-and-identity/", "Branding And Identity"],
+  ["/service/smart-growth-marketing/", "Smart Growth Marketing"],
+  ["/service/media-creation-services/", "Media Creation Services"],
+  ["/service/ai-powered-business-solutions/", "AI-Powered Business Solutions"],
+  ["/service/mobile-application/", "Mobile Application"],
+  ["/service/cms-solution/", "CMS Solution"],
   ["/service/branding-design/", "Branding Design (live URL, web design content)"],
 ];
 const roles = [
@@ -29,22 +28,13 @@ const roles = [
   ["/seo-executive/", "SEO Executive"],
   ["/ui-ux-designer/", "UI/UX Designer"],
 ];
-const categories = [
-  ["/category/agency/", "Agency"],
-  ["/category/branding-strategy/", "Branding Strategy"],
-  ["/category/digital-solutions/", "Digital Solutions"],
-  ["/category/typography/", "Typography"],
-  ["/category/uncategorized/", "Uncategorized"],
-  ["/category/ux-ui-design/", "UX UI Design"],
-  ["/category/web-solutions/", "Web Solutions"],
-];
 ---
 
 <Base title={title} description={description} canonical={canonical} bodyClass="page">
   <main style="max-width:900px;margin:60px auto;padding:0 30px;font-family:system-ui,sans-serif;line-height:1.6;color:#151515;">
     <h1 style="font-size:36px;">Sitemap</h1>
     <p>Every page currently on this staging site. This page is for review only and is not in the main menu. Tell us which pages to add and which to remove, and we will update this list.</p>
-    <p><strong>31 content pages</strong> below, plus this review page itself.</p>
+    <p><strong>23 content pages</strong> below, plus this review page itself.</p>
 
     <h2>Site hierarchy</h2>
     <ul style="list-style:none;padding-left:0;">
@@ -53,15 +43,15 @@ const categories = [
           <li><a href="/about-us/">About Us</a> <span style="color:#777;">/about-us/</span></li>
           <li><a href="/services/">Services</a> <span style="color:#777;">/services/</span>
             <ul>
-              <li><a href="/services/web-design/">Web Design</a></li>
-              <li><a href="/services/web-development/">Web Development</a></li>
-              <li><a href="/services/branding-and-identity/">Branding And Identity</a></li>
+              <li><a href="/service/branding-design/">Web Design</a></li>
+              <li><a href="/service/web-development/">Web Development</a></li>
+              <li><a href="/service/branding-and-identity/">Branding And Identity</a></li>
               <li><a href="/service/branding-design/">Branding Design</a> <span style="color:#777;">(live URL)</span></li>
-              <li><a href="/services/smart-growth-marketing/">Smart Growth Marketing</a></li>
-              <li><a href="/services/media-creation-services/">Media Creation Services</a></li>
-              <li><a href="/services/ai-powered-business-solutions/">AI-Powered Business Solutions</a></li>
-              <li><a href="/services/mobile-application/">Mobile Application</a></li>
-              <li><a href="/services/cms-solution/">CMS Solution</a></li>
+              <li><a href="/service/smart-growth-marketing/">Smart Growth Marketing</a></li>
+              <li><a href="/service/media-creation-services/">Media Creation Services</a></li>
+              <li><a href="/service/ai-powered-business-solutions/">AI-Powered Business Solutions</a></li>
+              <li><a href="/service/mobile-application/">Mobile Application</a></li>
+              <li><a href="/service/cms-solution/">CMS Solution</a></li>
             </ul>
           </li>
           <li><a href="/careers/">Careers</a> <span style="color:#777;">/careers/</span>
@@ -82,17 +72,6 @@ const categories = [
             </ul>
           </li>
           <li><a href="/contact/">Contact</a> <span style="color:#777;">/contact/</span></li>
-        </ul>
-      </li>
-      <li>Category pages (Artech demo, not on live)
-        <ul>
-          <li><a href="/category/agency/">Agency</a></li>
-          <li><a href="/category/branding-strategy/">Branding Strategy</a></li>
-          <li><a href="/category/digital-solutions/">Digital Solutions</a></li>
-          <li><a href="/category/typography/">Typography</a></li>
-          <li><a href="/category/uncategorized/">Uncategorized</a></li>
-          <li><a href="/category/ux-ui-design/">UX UI Design</a></li>
-          <li><a href="/category/web-solutions/">Web Solutions</a></li>
         </ul>
       </li>
       <li><a href="/sitemap/">Sitemap (this review page)</a></li>

@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description: string;
@@ -20,8 +21,9 @@ const { title, description, canonical, bodyClass = "" } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Design Studio" />
+    <meta property="og:site_name" content="Crayonweb Studio" />
     <link rel="icon" href="/crayon/crayon_icon.png" sizes="32x32" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://crayonwebstudio.com/#organization", "name": "Crayonweb Studio", "url": "https://crayonwebstudio.com", "logo": "https://crayonwebstudio.com/crayon/logo-main.png", "email": "info@crayonwebstudio.com", "telephone": "+91 9624052424", "address": {"@type": "PostalAddress", "streetAddress": "319, 3rd Floor, Sagar Complex, Jasonath Chowk", "addressLocality": "Bhavnagar", "postalCode": "364001", "addressCountry": "IN"}}, {"@type": "WebSite", "@id": "https://crayonwebstudio.com/#website", "url": "https://crayonwebstudio.com", "name": "Crayonweb Studio", "publisher": {"@id": "https://crayonwebstudio.com/#organization"}}]}</script>
     <script is:inline src="/wp-includes/js/jquery/jquery.min.js?v=1"></script>
     <script is:inline src="/wp-includes/js/jquery/jquery-migrate.min.js?v=1"></script>
     <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/options-core/assets/css/extendify-utilities.css?v=1" />
@@ -77,6 +79,7 @@ const { title, description, canonical, bodyClass = "" } = Astro.props;
 </head>
   <body class={bodyClass}>
     <slot />
+    <Footer />
     <script is:inline>
       // Staging site: newsletter and comment forms have no endpoint, so
       // submissions are stopped here and a note is shown instead.
