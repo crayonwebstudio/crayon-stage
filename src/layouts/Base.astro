@@ -95,15 +95,18 @@ const { title, description, canonical, bodyClass = "" } = Astro.props;
   <script id="fat-nav-sync">
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".mobile-wrapper .hamburger").forEach(function (btn) {
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
       var wrap = btn.closest(".mobile-wrapper");
       if (!wrap) return;
       var nav = wrap.querySelector(".fat-nav");
       if (!nav) return;
-      setTimeout(function () {
-        if (btn.classList.contains("active")) { nav.classList.add("active"); nav.style.display = "block"; }
-        else { nav.classList.remove("active"); nav.style.display = "none"; }
-      }, 150);
+      var opening = !btn.classList.contains("active");
+      btn.classList.toggle("active", opening);
+      nav.classList.toggle("active", opening);
+      nav.style.display = opening ? "block" : "none";
+      document.body.classList.toggle("nav-active", opening);
     });
   });
 });
