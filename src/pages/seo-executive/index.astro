@@ -1,0 +1,11 @@
+---
+import Base from "../../layouts/Base.astro";
+import bodyHtml from "../../fragments/career-seo-executive.html?raw";
+const title = "SEO Executive - Crayonweb Studio";
+const description = "SEO Executive role at Crayonweb, Bhavnagar: full time, on site, 1+ years experience.";
+const canonical = "https://stage.woodwolfdigital.com/seo-executive/";
+const bodyClass = "page";
+---
+<Base title={title} description={description} canonical={canonical} bodyClass={bodyClass}>
+  <div set:html={bodyHtml} />
+</Base>

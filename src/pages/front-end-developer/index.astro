@@ -1,0 +1,11 @@
+---
+import Base from "../../layouts/Base.astro";
+import bodyHtml from "../../fragments/career-front-end-developer.html?raw";
+const title = "Front-End Developer - Crayonweb Studio";
+const description = "Front-End Developer role at Crayonweb, Bhavnagar: full time, on site, 1+ years experience.";
+const canonical = "https://stage.woodwolfdigital.com/front-end-developer/";
+const bodyClass = "page";
+---
+<Base title={title} description={description} canonical={canonical} bodyClass={bodyClass}>
+  <div set:html={bodyHtml} />
+</Base>

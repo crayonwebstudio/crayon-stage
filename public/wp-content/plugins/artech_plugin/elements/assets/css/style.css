@@ -2839,11 +2839,21 @@
 .artech-project-slider .title-section .nav-pills {
   position: relative;
   width: max-content;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
   margin-inline-start: auto;
   padding: 15px 30px;
   background-color: #151515;
   border: 1px solid rgba(255, 255, 255, 0.1333333333);
+  overflow-x: auto;
+}
+.artech-project-slider .title-section .nav-pills .nav-item {
+  flex-shrink: 0;
+}
+.artech-project-slider .title-section .nav-pills .nav-item .nav-link {
+  white-space: nowrap;
 }
 .artech-project-slider .title-section .nav-pills .nav-item {
   position: relative;
@@ -2971,8 +2981,10 @@
     margin-bottom: 30px;
   }
   .artech-project-slider .title-section .nav-pills {
-    flex-wrap: wrap;
-    width: 100%;
+    flex-wrap: nowrap;
+    width: max-content;
+    max-width: 100%;
+    overflow-x: auto;
   }
   .artech-project-slider .title-section .nav-pills .nav-item {
     margin: 10px 0;

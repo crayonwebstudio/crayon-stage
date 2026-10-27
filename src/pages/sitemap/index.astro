@@ -21,6 +21,13 @@ const services = [
   ["/services/ai-powered-business-solutions/", "AI-Powered Business Solutions"],
   ["/services/mobile-application/", "Mobile Application"],
   ["/services/cms-solution/", "CMS Solution"],
+  ["/service/branding-design/", "Branding Design (live URL, web design content)"],
+];
+const roles = [
+  ["/business-development-executive/", "Business Development Executive"],
+  ["/front-end-developer/", "Front-End Developer"],
+  ["/seo-executive/", "SEO Executive"],
+  ["/ui-ux-designer/", "UI/UX Designer"],
 ];
 const categories = [
   ["/category/agency/", "Agency"],
@@ -37,26 +44,58 @@ const categories = [
   <main style="max-width:900px;margin:60px auto;padding:0 30px;font-family:system-ui,sans-serif;line-height:1.6;color:#151515;">
     <h1 style="font-size:36px;">Sitemap</h1>
     <p>Every page currently on this staging site. This page is for review only and is not in the main menu. Tell us which pages to add and which to remove, and we will update this list.</p>
-    <p><strong>22 content pages</strong> below, plus this review page itself.</p>
+    <p><strong>31 content pages</strong> below, plus this review page itself.</p>
 
-    <h2>Main pages (7)</h2>
-    <ul>
-      {main.map(([url, label]) => <li><a href={url}>{label}</a> <span style="color:#777;">{url}</span></li>)}
-    </ul>
-
-    <h2>Service pages (8)</h2>
-    <ul>
-      {services.map(([url, label]) => <li><a href={url}>{label}</a> <span style="color:#777;">{url}</span></li>)}
-    </ul>
-
-    <h2>Category pages (7)</h2>
-    <ul>
-      {categories.map(([url, label]) => <li><a href={url}>{label}</a> <span style="color:#777;">{url}</span></li>)}
-    </ul>
-
-    <h2>Review page (1)</h2>
-    <ul>
-      <li><a href="/sitemap/">Sitemap (this page)</a> <span style="color:#777;">/sitemap/</span></li>
+    <h2>Site hierarchy</h2>
+    <ul style="list-style:none;padding-left:0;">
+      <li><a href="/">Home</a> <span style="color:#777;">/</span>
+        <ul>
+          <li><a href="/about-us/">About Us</a> <span style="color:#777;">/about-us/</span></li>
+          <li><a href="/services/">Services</a> <span style="color:#777;">/services/</span>
+            <ul>
+              <li><a href="/services/web-design/">Web Design</a></li>
+              <li><a href="/services/web-development/">Web Development</a></li>
+              <li><a href="/services/branding-and-identity/">Branding And Identity</a></li>
+              <li><a href="/service/branding-design/">Branding Design</a> <span style="color:#777;">(live URL)</span></li>
+              <li><a href="/services/smart-growth-marketing/">Smart Growth Marketing</a></li>
+              <li><a href="/services/media-creation-services/">Media Creation Services</a></li>
+              <li><a href="/services/ai-powered-business-solutions/">AI-Powered Business Solutions</a></li>
+              <li><a href="/services/mobile-application/">Mobile Application</a></li>
+              <li><a href="/services/cms-solution/">CMS Solution</a></li>
+            </ul>
+          </li>
+          <li><a href="/careers/">Careers</a> <span style="color:#777;">/careers/</span>
+            <ul>
+              <li><a href="/business-development-executive/">Business Development Executive</a></li>
+              <li><a href="/front-end-developer/">Front-End Developer</a></li>
+              <li><a href="/seo-executive/">SEO Executive</a></li>
+              <li><a href="/ui-ux-designer/">UI/UX Designer</a></li>
+            </ul>
+          </li>
+          <li><a href="/portfolio/">Portfolio</a> <span style="color:#777;">/portfolio/</span></li>
+          <li><a href="/blogs/">Blogs</a> <span style="color:#777;">/blogs/</span>
+            <ul>
+              <li><a href="/pages/blog-detail/how-to-install-typo3-v13-lts-using-composer-step-by-step-guide/">How to Install TYPO3 v13 LTS Using Composer</a></li>
+              <li><a href="/pages/blog-detail/complete-step-by-step-guide-to-installing-and-setting-up-coolify-on-a-vps/">Complete Step-by-Step Guide to Installing and Setting Up Coolify on a VPS</a></li>
+              <li><a href="/pages/blog-detail/whats-new-in-typo3-v14-a-complete-overview-for-2025/">What is New in TYPO3 v14</a></li>
+              <li><a href="/pages/blog-detail/typo3-v14-lts-the-next-generation-of-enterprise-cms/">TYPO3 v14 LTS: The Next Generation of Enterprise CMS</a></li>
+            </ul>
+          </li>
+          <li><a href="/contact/">Contact</a> <span style="color:#777;">/contact/</span></li>
+        </ul>
+      </li>
+      <li>Category pages (Artech demo, not on live)
+        <ul>
+          <li><a href="/category/agency/">Agency</a></li>
+          <li><a href="/category/branding-strategy/">Branding Strategy</a></li>
+          <li><a href="/category/digital-solutions/">Digital Solutions</a></li>
+          <li><a href="/category/typography/">Typography</a></li>
+          <li><a href="/category/uncategorized/">Uncategorized</a></li>
+          <li><a href="/category/ux-ui-design/">UX UI Design</a></li>
+          <li><a href="/category/web-solutions/">Web Solutions</a></li>
+        </ul>
+      </li>
+      <li><a href="/sitemap/">Sitemap (this review page)</a></li>
     </ul>
 
     <p style="color:#777;">Note: the custom 404 page is not listed, it only appears for unknown URLs. The site stays noindex while it is staging.</p>
