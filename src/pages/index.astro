@@ -1,12 +1,11 @@
 ---
 import Base from "../layouts/Base.astro";
 import bodyHtml from "../fragments/index.html?raw";
-const title = "Crayonweb Studio - Creative Digital Studio | TYPO3 Agency | TYPO3 Headless CMS";
-const description = "Crayonweb Studio is a creative digital studio specializing in TYPO3 development, custom TYPO3 Headless CMS solutions, and modern web experiences. As a leading TYPO3 agency, we craft scalable, high-performance websites and digital products tailored to your business goals. Partner with us for cutting-edge TYPO3 Headless integration, frontend freedom, and enterprise-grade CMS performance.";
+const title = "Design Studio";
+const description = "Artech Design Studio demo page on this staging site. Demo placeholder copy, kept as supplied.";
 const canonical = "https://stage.woodwolfdigital.com/";
-const schema = "{\"@context\": \"https://schema.org\", \"@type\": \"WebPage\", \"name\": \"Crayonweb Studio - Creative Digital Studio | TYPO3 Agency | TYPO3 Headless CMS\", \"description\": \"Crayonweb Studio is a creative digital studio specializing in TYPO3 development, custom TYPO3 Headless CMS solutions, and modern web experiences. As a leading TYPO3 agency, we craft scalable, high-performance websites and digital products tailored to your business goals. Partner with us for cutting-edge TYPO3 Headless integration, frontend freedom, and enterprise-grade CMS performance.\", \"url\": \"https://stage.woodwolfdigital.com/\"}";
-const breadcrumbs = "[{\"name\": \"Home\", \"url\": \"https://stage.woodwolfdigital.com/\"}]";
+const bodyClass = "home page-template page-template-blank-builder page-template-blank-builder-php page page-id-7 wp-embed-responsive  elementor-default elementor-kit-5 elementor-page elementor-page-7";
 ---
-<Base title={title} description={description} canonical={canonical} type="website" schema={schema} breadcrumbs={JSON.parse(breadcrumbs)}>
+<Base title={title} description={description} canonical={canonical} bodyClass={bodyClass}>
   <div set:html={bodyHtml} />
 </Base>

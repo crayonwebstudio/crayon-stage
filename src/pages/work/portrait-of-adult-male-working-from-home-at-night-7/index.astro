@@ -1,0 +1,11 @@
+---
+import Base from "../../../layouts/Base.astro";
+import bodyHtml from "../../../fragments/work-portrait-of-adult-male-working-from-home-at-night-7.html?raw";
+const title = "Portrait of adult male working  from home at night \u2013 Design Studio";
+const description = "Artech Design Studio demo page on this staging site. Demo placeholder copy, kept as supplied.";
+const canonical = "https://stage.woodwolfdigital.com/work/portrait-of-adult-male-working-from-home-at-night-7/";
+const bodyClass = "post-template-default single single-post postid-826 single-format-standard wp-embed-responsive  elementor-default elementor-kit-5 elementor-page elementor-page-826";
+---
+<Base title={title} description={description} canonical={canonical} bodyClass={bodyClass}>
+  <div set:html={bodyHtml} />
+</Base>

@@ -1,0 +1,11 @@
+---
+import Base from "../../../layouts/Base.astro";
+import bodyHtml from "../../../fragments/author-admin.html?raw";
+const title = "Admin \u2013 Design Studio";
+const description = "Artech Design Studio demo page on this staging site. Demo placeholder copy, kept as supplied.";
+const canonical = "https://stage.woodwolfdigital.com/author/admin/";
+const bodyClass = "archive author author-admin author-2 wp-embed-responsive  elementor-default elementor-kit-5";
+---
+<Base title={title} description={description} canonical={canonical} bodyClass={bodyClass}>
+  <div set:html={bodyHtml} />
+</Base>

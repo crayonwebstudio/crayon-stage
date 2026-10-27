@@ -1,27 +1,11 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description: string;
   canonical: string;
-  type?: "website" | "article";
-  schema?: string;
-  breadcrumbs?: { name: string; url: string }[];
+  bodyClass?: string;
 }
-const { title, description, canonical, type = "website", schema, breadcrumbs = [] } = Astro.props;
-const breadcrumbSchema = breadcrumbs.length
-  ? JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: breadcrumbs.map((b, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        name: b.name,
-        item: b.url,
-      })),
-    })
-  : "";
+const { title, description, canonical, bodyClass = "" } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -35,49 +19,76 @@ const breadcrumbSchema = breadcrumbs.length
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:type" content={type} />
-    <meta property="og:site_name" content="Crayonweb Studio" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <link rel="icon" type="image/png" href="/images/crayon_icon.png" />
-    <link rel="stylesheet" href="/css/hanken.css?v=4" />
-    <link rel="stylesheet" href="/css/original.css?v=4" />
-    <link rel="stylesheet" href="/css/components.css?v=4" />
-    <link rel="stylesheet" href="/css/site.css?v=4" />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "Crayonweb Studio Pvt. Ltd.",
-      url: "https://stage.woodwolfdigital.com/",
-      email: "info@crayonwebstudio.com",
-      telephone: "+91 9624052424",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "319, 3rd Floor, Sagar Complex, Jasonath Chowk",
-        addressLocality: "Bhavnagar",
-        postalCode: "364001",
-        addressCountry: "IN",
-      },
-      sameAs: ["https://www.linkedin.com/company/crayonwebstudio"],
-    })} />
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: "Crayonweb Studio",
-      url: "https://stage.woodwolfdigital.com/",
-    })} />
-    {breadcrumbSchema && <script type="application/ld+json" set:html={breadcrumbSchema} />}
-    {schema && <script type="application/ld+json" set:html={schema} />}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Design Studio" />
+    <link rel="icon" href="/wp-content/uploads/sites/6/2024/02/fav.png" sizes="32x32" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/options-core/assets/css/extendify-utilities.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/assets/fonts/linea/arrows/css/style.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/assets/fonts/linea/basic/css/style.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/assets/fonts/linea/basic_ela/css/style.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/assets/fonts/linea/software/css/style.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/assets/fonts/linea/weather/css/style.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/assets/css/style.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/bootstrap.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/font-awesome.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/fontawesome.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/icon-font.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/ionicons.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/fonts/bootstrap-icons/bootstrap-icons.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/magnific-popup.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/animate.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/magic.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/slick.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/jquery.fatNav.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/animate.headline.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/splitting.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/assets/css/splitting-cells.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/themes/artech/style.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/elementor/assets/css/frontend.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-5.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/artech_plugin/elements/assets/css/global/laby.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/artech_plugin/elements/assets/css/global/lity.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/artech_plugin/elements/assets/css/style.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/assets/fonts/flaticon/flaticon.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/assets/fonts/fa/css/fontawesome.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/assets/fonts/peicon/pe-icon-7-stroke.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/themescamp-core/elementor/elements/assets/css/style.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-7.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-144.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-434.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-437.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-440.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-443.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-471.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-479.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-822.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-824.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-826.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-828.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-830.css?v=1" />
+    <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-832.css?v=1" />
   </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <Header />
-    <main id="main-content">
-      <slot />
-    </main>
-    <Footer />
-    <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
-    <script src="/js/site.js?v=4" defer></script>
+  <body class={bodyClass}>
+    <slot />
+    <script is:inline>
+      // Staging site: newsletter and comment forms have no endpoint, so
+      // submissions are stopped here and a note is shown instead.
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".mc4wp-form, .comment-form").forEach(function (form) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (!form.nextElementSibling || !form.nextElementSibling.classList.contains("staging-form-note")) {
+              var note = document.createElement("p");
+              note.className = "staging-form-note";
+              note.textContent = "Thanks. This form is front end only on this staging site, so nothing was sent.";
+              form.insertAdjacentElement("afterend", note);
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
