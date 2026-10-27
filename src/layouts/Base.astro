@@ -70,7 +70,8 @@ const { title, description, canonical, bodyClass = "" } = Astro.props;
     <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-828.css?v=1" />
     <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-830.css?v=1" />
     <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-832.css?v=1" />
-  </head>
+  <style id="preloader-guard">#preloader{display:none !important}#preloader:before,#preloader:after{display:none !important}</style>
+</head>
   <body class={bodyClass}>
     <slot />
     <script is:inline>
