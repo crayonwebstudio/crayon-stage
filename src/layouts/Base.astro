@@ -76,7 +76,7 @@ const { title, description, canonical, bodyClass = "" } = Astro.props;
     <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-832.css?v=1" />
   <style id="preloader-guard">#preloader{display:none !important}#preloader:before,#preloader:after{display:none !important}</style>
 <style id="fat-nav-guard">.fat-nav.active{display:block !important}</style>
-<style id="offcanvas-submenu">#menu-offcanvas-menu .sub-menu{display:none}#menu-offcanvas-menu .sub-menu.sub-open{display:block;padding-left:24px}#menu-offcanvas-menu .menu-item-has-children > a{display:inline-block}#menu-offcanvas-menu .offcanvas-sub-toggle{display:inline-block;cursor:pointer;color:#fff;font-size:24px;line-height:1;margin-left:12px;vertical-align:middle}</style>
+<style id="offcanvas-submenu">#menu-offcanvas-menu .sub-menu{display:none}#menu-offcanvas-menu .sub-menu.sub-open{display:block;padding-left:24px}#menu-offcanvas-menu .menu-item-has-children > a{display:inline-block}#menu-offcanvas-menu .offcanvas-sub-toggle{display:inline-block;cursor:pointer;color:#fff;font-size:24px;line-height:1;margin-left:12px;vertical-align:middle}#menu-offcanvas-menu .sub-menu a{text-transform:none;color:#fff}#menu-offcanvas-menu li.sub-open-parent > a{color:#F7931E}.tcg-offcanvas-wrapper .offcanvas-container .offcanvas-close{left:auto!important;right:0!important;background:transparent!important}.progress-wrap{border-radius:0!important;background:#151515!important}.progress-wrap::after{color:#fff!important}.progress-wrap svg{display:none!important}</style>
 </head>
   <body class={bodyClass}>
     <slot />
@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       e.stopPropagation();
       var open = sub.classList.toggle("sub-open");
+      li.classList.toggle("sub-open-parent", open);
       t.textContent = open ? "-" : "+";
     });
   });
