@@ -76,6 +76,7 @@ const { title, description, canonical, bodyClass = "" } = Astro.props;
     <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-832.css?v=1" />
   <style id="preloader-guard">#preloader{display:none !important}#preloader:before,#preloader:after{display:none !important}</style>
 <style id="fat-nav-guard">.fat-nav.active{display:block !important}</style>
+<style id="offcanvas-submenu">#menu-offcanvas-menu .sub-menu{display:none}#menu-offcanvas-menu .sub-menu.sub-open{display:block;padding-left:24px}#menu-offcanvas-menu .menu-item-has-children > a{display:inline-block}#menu-offcanvas-menu .offcanvas-sub-toggle{display:inline-block;cursor:pointer;color:#fff;font-size:24px;line-height:1;margin-left:12px;vertical-align:middle}</style>
 </head>
   <body class={bodyClass}>
     <slot />
@@ -112,6 +113,27 @@ document.addEventListener("DOMContentLoaded", function () {
       nav.classList.toggle("active", opening);
       nav.style.display = opening ? "block" : "none";
       document.body.classList.toggle("nav-active", opening);
+    });
+  });
+});
+</script>
+<script id="offcanvas-submenu">
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("#menu-offcanvas-menu .menu-item-has-children").forEach(function (li) {
+    var sub = li.querySelector(":scope > .sub-menu");
+    if (!sub || li.querySelector(".offcanvas-sub-toggle")) return;
+    var t = document.createElement("i");
+    t.className = "offcanvas-sub-toggle";
+    t.textContent = "+";
+    t.setAttribute("aria-label", "Toggle submenu");
+    var link = li.querySelector(":scope > a");
+    if (link) link.insertAdjacentElement("afterend", t);
+    else li.prepend(t);
+    t.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var open = sub.classList.toggle("sub-open");
+      t.textContent = open ? "-" : "+";
     });
   });
 });
