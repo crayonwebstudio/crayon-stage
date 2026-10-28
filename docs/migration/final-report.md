@@ -76,6 +76,10 @@ static nginx on Coolify). Master: https://crayonwebstudio.com (TYPO3).
 - `npm run build` succeeds (24 routes + 404). Deploys via Coolify
   (project crayon-stage, app stage). Latest migration deploy verified
   live 2026-10-27 (routes 200, redirects 301, removed URLs 404).
+  Final batch: commit 328d8196, deploy urbn5ugktfeksajk6ehmtjh7 finished;
+  live about1.jpg 228860 bytes and blog-typo3-v13.jpg 467791 bytes confirm
+  compressed images served, removed duplicate PNG returns 404, homepage
+  footer/Subscribe/150+ all render.
 
 ## 11. Remaining issues and blockers (explicit)
 
