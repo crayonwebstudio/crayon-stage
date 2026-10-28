@@ -77,6 +77,19 @@ const { title, description, canonical, bodyClass = "" } = Astro.props;
   <style is:global id="preloader-guard">#preloader{display:none !important}#preloader:before,#preloader:after{display:none !important}</style>
 <style is:global id="fat-nav-guard">.fat-nav.active{display:block !important}</style>
 <style is:global id="offcanvas-submenu">#menu-offcanvas-menu .sub-menu{display:none}#menu-offcanvas-menu .sub-menu.sub-open{display:block;padding-left:24px}#menu-offcanvas-menu .menu-item-has-children > a{display:inline-block}#menu-offcanvas-menu .offcanvas-sub-toggle{display:inline-block;cursor:pointer;color:#fff;font-size:24px;line-height:1;margin-left:12px;vertical-align:middle}#menu-offcanvas-menu .sub-menu a{text-transform:none;color:#fff}#menu-offcanvas-menu li.sub-open-parent > a{color:#F7931E}.tcg-offcanvas-wrapper .offcanvas-container .offcanvas-close{left:auto!important;right:0!important;background:transparent!important}.progress-wrap{border-radius:0!important;background:#151515!important}.progress-wrap::after{color:#fff!important}.progress-wrap svg{display:none!important}</style>
+<style is:global id="homepage-fixes">
+[data-id="ef8d5ad"]{background-image:linear-gradient(rgba(0,0,0,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.045) 1px,transparent 1px)!important;background-size:44px 44px!important;}
+img[src*="hero-team.png"]{filter:drop-shadow(0 30px 28px rgba(247,147,30,0.55))!important;}
+.artech-capabilities-slider .capabilities-card .description{color:#888!important;}
+.artech-project-slider .title-section .nav-pills{background-color:rgba(255,255,255,0.08)!important;border-color:rgba(255,255,255,0.25)!important;}
+.artech-project-slider .title-section .nav-pills .nav-link{color:#ccc!important;}
+.artech-project-slider .title-section .nav-pills .nav-link.active{color:#fff!important;}
+.artech-project-slider .title-section .main-title{color:rgba(255,255,255,0.13)!important;}
+.artech-testimonials .testi-card{height:100%!important;display:flex!important;flex-direction:column!important;}
+.artech-testimonials .testi-card .user-info{margin-top:auto!important;padding-top:50px!important;}
+#menu-offcanvas-menu .sub-menu a{color:#fff!important;}
+[data-id="f0afd64"],[data-id="96409a8"]{overflow:visible!important;}
+</style>
 </head>
   <body class={bodyClass}>
     <slot />

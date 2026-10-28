@@ -7,8 +7,9 @@
             var swiper = new Swiper(slider, {
                 slidesPerView: 1,
                 spaceBetween: 30,
-                speed: 1500,
+                speed: 800,
                 effect: 'fade',
+                fadeEffect: { crossFade: true },
                 pagination: {
                     el: '.swiper-pagination',
                     type: 'fraction',
