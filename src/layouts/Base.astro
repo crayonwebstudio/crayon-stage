@@ -76,7 +76,7 @@ const { title, description, canonical, bodyClass = "" } = Astro.props;
     <link rel="stylesheet" href="/wp-content/uploads/sites/6/elementor/css/post-832.css?v=1" />
   <style is:global id="preloader-guard">#preloader{display:none !important}#preloader:before,#preloader:after{display:none !important}</style>
 <style is:global id="fat-nav-guard">.fat-nav.active{display:block !important}</style>
-<style is:global id="offcanvas-submenu">.tcg-offcanvas-wrapper .sub-menu{display:none}.tcg-offcanvas-wrapper .sub-menu.sub-open{display:block;padding-left:24px}.tcg-offcanvas-wrapper .menu-item-has-children > a{display:inline-block}.tcg-offcanvas-wrapper .offcanvas-sub-toggle{display:inline-block;cursor:pointer;color:#fff;font-size:24px;line-height:1;margin-left:8px;vertical-align:middle}.tcg-offcanvas-wrapper .sub-menu a{text-transform:none;color:#fff}.tcg-offcanvas-wrapper .menu-item-has-children > a:before,.tcg-offcanvas-wrapper .menu-item-has-children > a:after{display:none!important}.tcg-offcanvas-wrapper .menu-item-has-children{display:flex!important;flex-wrap:wrap!important;justify-content:flex-start!important;align-items:center!important}.tcg-offcanvas-wrapper .menu-item-has-children > .sub-menu{flex-basis:100%!important}.tcg-offcanvas-wrapper li.sub-open-parent > a{color:#F7931E}.tcg-offcanvas-wrapper .offcanvas-container .offcanvas-close{left:auto!important;right:145px!important;top:30px!important;background:transparent!important}.progress-wrap{border-radius:0!important;background:#151515!important}.progress-wrap::after{color:#fff!important}.progress-wrap svg{display:none!important}</style>
+<style is:global id="offcanvas-submenu">.menu-offcanvas-menu-container .sub-menu,.tcg-offcanvas-wrapper .sub-menu{display:none}.menu-offcanvas-menu-container .sub-menu.sub-open,.tcg-offcanvas-wrapper .sub-menu.sub-open{display:block;padding-left:24px}.menu-offcanvas-menu-container .menu-item-has-children > a,.tcg-offcanvas-wrapper .menu-item-has-children > a{display:inline-block}.menu-offcanvas-menu-container .offcanvas-sub-toggle,.tcg-offcanvas-wrapper .offcanvas-sub-toggle{display:inline-block;cursor:pointer;color:#fff;font-size:24px;line-height:1;margin-left:8px;vertical-align:middle}.menu-offcanvas-menu-container .sub-menu a,.tcg-offcanvas-wrapper .sub-menu a{text-transform:none;color:#fff}.menu-offcanvas-menu-container .menu-item-has-children > a:before,.menu-offcanvas-menu-container .menu-item-has-children > a:after,.tcg-offcanvas-wrapper .menu-item-has-children > a:before,.tcg-offcanvas-wrapper .menu-item-has-children > a:after{display:none!important}.menu-offcanvas-menu-container .menu-item-has-children,.tcg-offcanvas-wrapper .menu-item-has-children{display:flex!important;flex-wrap:wrap!important;justify-content:flex-start!important;align-items:center!important}.menu-offcanvas-menu-container .menu-item-has-children > .sub-menu,.tcg-offcanvas-wrapper .menu-item-has-children > .sub-menu{flex-basis:100%!important}.menu-offcanvas-menu-container li.sub-open-parent > a,.tcg-offcanvas-wrapper li.sub-open-parent > a{color:#F7931E}.tcg-offcanvas-wrapper .offcanvas-container .offcanvas-close{left:auto!important;right:145px!important;top:30px!important;background:transparent!important}.progress-wrap{border-radius:0!important;background:#151515!important}.progress-wrap::after{color:#fff!important}.progress-wrap svg{display:none!important}</style>
 <style is:global id="homepage-fixes">
 [data-id="ef8d5ad"]{background-image:linear-gradient(rgba(0,0,0,0.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.045) 1px,transparent 1px)!important;background-size:44px 44px!important;}
 img[src*="hero-team.png"]{filter:drop-shadow(0 30px 28px rgba(247,147,30,0.55))!important;}
@@ -88,7 +88,7 @@ img[src*="hero-team.png"]{filter:drop-shadow(0 30px 28px rgba(247,147,30,0.55))!
 .artech-testimonials .testi-card{height:100%!important;display:flex!important;flex-direction:column!important;}
 .artech-testimonials .testi-card .user-info{margin-top:auto!important;padding-top:50px!important;}
 .artech-testimonials .swiper-wrapper{align-items:stretch!important}.artech-testimonials .swiper-slide{display:flex!important;height:auto!important}.artech-testimonials .testi-card{flex:1 1 auto!important;}
-.tcg-offcanvas-wrapper .sub-menu a{color:#fff!important;opacity:1!important;font-weight:700!important;}
+.menu-offcanvas-menu-container .sub-menu a,.tcg-offcanvas-wrapper .sub-menu a{color:#fff!important;opacity:1!important;font-weight:700!important;}
 [data-id="f0afd64"],[data-id="96409a8"]{overflow:visible!important;}
 </style>
 </head>
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <script id="offcanvas-submenu">
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".tcg-offcanvas-wrapper .menu-item-has-children").forEach(function (li) {
+  document.querySelectorAll(".menu-offcanvas-menu-container .menu-item-has-children, .tcg-offcanvas-wrapper .menu-item-has-children").forEach(function (li) {
     var sub = li.querySelector(":scope > .sub-menu");
     if (!sub || li.querySelector(".offcanvas-sub-toggle")) return;
     var t = document.createElement("i");
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     t.textContent = "+";
     t.setAttribute("aria-label", "Toggle submenu");
     var link = li.querySelector(":scope > a");
-    if (link) link.insertAdjacentElement("afterend", t);
+    if (link) link.appendChild(t);
     else li.prepend(t);
     t.addEventListener("click", function (e) {
       e.preventDefault();
