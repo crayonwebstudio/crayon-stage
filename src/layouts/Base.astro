@@ -140,8 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
     t.className = "offcanvas-sub-toggle";
     t.textContent = "+";
     t.setAttribute("aria-label", "Toggle submenu");
+    li.style.setProperty("display", "block", "important");
     var link = li.querySelector(":scope > a");
-    if (link) { link.style.setProperty("display", "inline-block", "important"); link.appendChild(t); }
+    if (link) { link.style.setProperty("display", "inline-block", "important"); link.insertAdjacentElement("afterend", t); }
     t.style.setProperty("display", "inline-block", "important");
     t.style.setProperty("position", "static", "important");
     t.style.setProperty("float", "none", "important");
