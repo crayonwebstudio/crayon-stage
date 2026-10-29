@@ -136,42 +136,30 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".menu-offcanvas-menu-container .menu-item-has-children, .tcg-offcanvas-wrapper .menu-item-has-children, .fat-nav .menu-item-has-children").forEach(function (li) {
     var sub = li.querySelector(":scope > .sub-menu");
     if (!sub || li.querySelector(".offcanvas-sub-toggle")) return;
+    var link = li.querySelector(":scope > a");
+    if (!link) return;
+    var isFat = !!li.closest(".fat-nav");
     var t = document.createElement("i");
     t.className = "offcanvas-sub-toggle";
     t.textContent = "+";
     t.setAttribute("aria-label", "Toggle submenu");
-    var isFat = !!li.closest(".fat-nav");
-    if (isFat) {
-      li.style.setProperty("display", "flex", "important");
-      li.style.setProperty("flex-wrap", "wrap", "important");
-      li.style.setProperty("align-items", "center", "important");
-      sub.style.setProperty("flex-basis", "100%", "important");
-      t.style.setProperty("color", "#151515", "important");
-      t.style.setProperty("font-size", "20px", "important");
-    } else {
-      li.style.setProperty("display", "flex", "important");
-      li.style.setProperty("flex-wrap", "wrap", "important");
-      li.style.setProperty("align-items", "center", "important");
-      sub.style.setProperty("flex-basis", "100%", "important");
-    }
-    var link = li.querySelector(":scope > a");
-    if (link) {
-      link.style.setProperty("display", "inline-block", "important");
-      link.insertAdjacentElement("afterend", t);
-    } else {
-      li.prepend(t);
-    }
     t.style.setProperty("display", "inline-block", "important");
-    t.style.setProperty("position", "static", "important");
-    t.style.setProperty("float", "none", "important");
     t.style.setProperty("margin-left", "8px", "important");
+    t.style.setProperty("cursor", "pointer", "important");
     t.style.setProperty("vertical-align", "middle", "important");
+    t.style.setProperty("font-style", "normal", "important");
+    t.style.setProperty("font-weight", "700", "important");
+    t.style.setProperty("font-size", isFat ? "20px" : "24px", "important");
+    t.style.setProperty("color", isFat ? "#151515" : "#fff", "important");
+    link.appendChild(t);
     t.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
       var open = sub.classList.toggle("sub-open");
       li.classList.toggle("sub-open-parent", open);
       t.textContent = open ? "-" : "+";
+      if (open) { link.style.setProperty("color", "#F7931E", "important"); }
+      else { link.style.removeProperty("color"); }
     });
   });
 });
